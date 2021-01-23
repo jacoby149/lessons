@@ -8,35 +8,38 @@
 
 <body>
     <br>
+    <!-- try changing this to h1,h2,...,h5,h6. Change the closing tag too.-->
     <h3 class="intro"> Hello, My Name is Jacob :)</h3>
 
     <button onclick="showhide(notesection)">Show/Hide Notes Section</button>
 
     <div class="notesection" id="notesection">
-        <h4> Languages </h4>
-        <p><b>HTML</b> : A Markup Language. Not quite code.</p>
-        <p class="note">* Markup languages are for writing documents</p>
-        <br>
-        <p><b>CSS</b> : A Styling Language. Not code.</p>
-        <p class="note">* A styling language modifies the way HTML documents look.</p>
-        <br>
-        <p><b>Javascript</b> (JS abbreviated) : A programming language.</p>
-        <p class="note">* The only programming language on websites.</p>
-        <p class="note">* Entirely different from Java. (confusing)</p>
-        <!-- Tags -->
-        <!-- html tags -->
-        <!--   * where the body, script, and style tags go inside -->
-        <!-- body tag -->
-        <!--   * For text, images, and input forms-->
-        <!--   * The body is the main website -->
-        <!-- script tag -->
-        <!--   * script tags are for writing code -->
-        <!--   * code in websites is in javascript -->
-        <!-- style tag -->
-        <!--   * For setting format of things in the body -->
-
-        <!-- try changing this to h1,h2,...,h5,h6. Change the closing tag too.-->
+        <div class="idea">
+            <h4> Languages </h4>
+            <p><b>HTML</b> : A Markup Language. Not quite code.</p>
+            <p class="note">* Markup languages are for writing documents</p>
+            <br>
+            <p><b>CSS</b> : A Styling Language. Not code.</p>
+            <p class="note">* A styling language modifies the way HTML documents look.</p>
+            <br>
+            <p><b>Javascript</b> (JS abbreviated) : A programming language.</p>
+            <p class="note">* The only programming language on websites.</p>
+            <p class="note">* Entirely different from Java. (confusing)</p>
+        </div>
+        <div class="idea">
+            <h4>Tags</h4>
+            <p><b>html</b> tag</p>
+            <p class="note">* where the body, script, and style tags go inside</p>
+            <p><b>body</b> tag </p>
+            <p class="note">* For text, images, inputs, buttons</p>
+            <p><b>script</b> tag </p>
+            <p class="note"> * script tags are for writing code</p>
+            <p class="note">* code in websites is in javascript </p>
+            <p><b>style</b> tag </p>
+            <p class="note">* For setting format of things in the body</p>
+        </div>
     </div>
+
 
     <!-- divs are a neat way to group things together-->
     <div class="mathstuff">
@@ -44,9 +47,9 @@
         <!-- Our First Calculator -->
         <div class="abc">
             <h4>Calculators : a ? b = c </h4>
-            <input id="a" type="number" value=1> ?
-            <input id="b" type="number" value=2> =
-            <input id="c" type="number" value=3>
+            <input id="a" type="number"> ?
+            <input id="b" type="number"> =
+            <input id="c" type="number">
         </div>
         <div class="calcbuttons">
             <button onclick="add(a,b,c)"> Add </button>
@@ -96,10 +99,18 @@
         margin-left: 10px;
     }
 
+    .idea {
+        padding: 20px;
+        display: inline-block
+    }
+
 
     .notesection {
-        margin: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
+
 
     .mathstuff {
         margin: 20px;
@@ -121,6 +132,7 @@
     h4 {
         /* I looked up "CSS how to underline" */
         text-decoration: underline;
+        margin-bottom: 5px;
     }
 </style>
 
