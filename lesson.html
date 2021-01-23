@@ -12,9 +12,8 @@
     <h3 class="intro"> Hello, My Name is Jacob :)</h3>
 
     <button onclick="showhide(notesection)">Show/Hide Notes Section</button>
-
     <div class="notesection" id="notesection">
-        <div class="idea">
+        <div class="topic">
             <h4> Languages </h4>
             <p><b>HTML</b> : A Markup Language. Not quite code.</p>
             <p class="note">* Markup languages are for writing documents</p>
@@ -26,7 +25,7 @@
             <p class="note">* The only programming language on websites.</p>
             <p class="note">* Entirely different from Java. (confusing)</p>
         </div>
-        <div class="idea">
+        <div class="topic">
             <h4>Tags</h4>
             <p><b>html</b> tag</p>
             <p class="note">* where the body, script, and style tags go inside</p>
@@ -67,9 +66,6 @@
 
 
 <script>
-    function get(s) {
-        return document.getElementById(s);
-    }
 
     function showhide(thing) {
         if (thing.style.display != "none") {
@@ -87,28 +83,29 @@
 </script>
 
 <style>
-    /* Style a class */
+    /* Centers Hello My Name is Jacob :)*/
+    /* Pushes it down 10 pixels from the top of the screen. */
     .intro {
         text-align: center;
         margin: 10px;
     }
 
-    /* Style a tag */
+    /* Tabs the regular P tags*/
     p {
         margin: 0px;
         margin-left: 10px;
     }
 
-    .idea {
+
+    .topic {
         padding: 20px;
-        display: inline-block
+        display: inline-block;
+        background-color: pink;
     }
 
 
     .notesection {
-        margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin: 20px;
     }
 
 
