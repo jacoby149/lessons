@@ -59,9 +59,18 @@
 
         <!-- Our Second Calculator -->
         <div class="nth">
+            <h4>Calculators : nth ___ number </h4>
+            The <input id="n" type="number"> th ___ number is :
+            <input id="x" type="number">
         </div>
-
+        <div class="calcbuttons">
+            <button onclick="even(n)"> Even </button>
+            <button onclick="odd(n)"> Odd </button>
+            <button onclick="prime(n)"> Prime </button>
+            <button onclick="factorial(n)"> Factorial </button>
+        </div>
     </div>
+
 </body>
 
 
@@ -77,6 +86,8 @@
     }
 
     function add(a, b, c) {
+        //A Float is a number that can also be a decimal, i.e. 3.4
+        //A regular integer can't be a decimal.
         c.value = parseFloat(a.value) + parseFloat(b.value);
         console.log(a.value, b.value, c.value);
     }
