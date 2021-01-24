@@ -12,17 +12,26 @@
 | 8    | Make the notes section, and successfully show/hide. (HTML,CSS,JS) |
 | 9    | Make the first calculator (HTML,CSS,JS)                      |
 | 10   | Make the second calculator (HTML,CSS,JS)                     |
+| 11   | Memoize Fibonnaci + Sort Lists of numbers, search lists of numbers. |
 
 Lesson 2 : (Coming Soon)
 
 **Topics:** 
 
+Dictionaries, Lists.
+
 Getting, Posting, Using an API Server from https://apipheny.io/free-api/ 
 
-Making an yahoo finance data API Server | repl.it
+Making an yahoo finance data API Server, Pandas, Flask | repl.it
 
 Databases, Making a login.
 
 Saving text, images, files,JSON.
+
+Latex Templating, serving nicely formatted letters.
+
+SVM's, and serving SVMs.
+
+MNIST Neural Net, and serving MNIST Neural Net.
 
 *The End.*
