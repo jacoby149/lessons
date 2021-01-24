@@ -7,19 +7,27 @@
 
 
 <body>
-    <br>
     <!-- try changing this to h1,h2,...,h5,h6. Change the closing tag too.-->
     <h3 class="intro"> Hello, My Name is Jacob :)</h3>
 
     <button onclick="showhide(notesection)">Show/Hide Notes Section</button>
-    Resources: <a href="https://www.stackoverflow.com">Stack Overflow</a> |
-    <a href="https://www.codepen.io"> Codepen</a> |
-    <a href="https://www.github.com"> GitHub</a> |
-    <a href="https://www.w3schools.com"> W3Schools</a> |
-    <a href="https://www.geeksforgeeks.org/"> GeeksForGeeks</a> |
-    <a href="https://www.freenom.com"> Freenom</a> |
-    <a href="https://www.cloudflare.com"> Cloudflare</a> |
-    <a href="https://repl.it/"> repl.it</a>
+    <br>
+
+    <div class="resources">
+        Platforms :
+        <a href="https://www.github.com"> GitHub</a> |
+        <a href="https://www.freenom.com"> Freenom</a> |
+        <a href="https://www.cloudflare.com"> Cloudflare</a> |
+        <a href="https://repl.it/"> repl.it</a> |
+        <a href="https://www.codepen.io"> Codepen</a>
+        <br>
+
+        Resources :
+        <a href="https://www.free-css.com/"> Free-CSS</a>
+        <a href="https://www.w3schools.com"> W3Schools</a> |
+        <a href="https://www.geeksforgeeks.org/"> GeeksForGeeks</a> |
+        <a href="https://www.stackoverflow.com">Stack Overflow</a>
+    </div>
 
     <div class="notesection" id="notesection">
         <div class="topic">
@@ -117,6 +125,10 @@
         margin-left: 10px;
     }
 
+    .resources {
+        margin-left: 25px;
+        margin-top: 10px;
+    }
 
     .topic {
         margin: 5px;
