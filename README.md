@@ -1,5 +1,5 @@
-# Programming
-<a href = "/lesson1.html">Lesson 1</a> : HTML, CSS, JS
+# Intro To Programming
+<a href = "/lessons/lesson1.html">Lesson 1</a> : HTML, CSS, JS
 
 | Step | Task                                                         |
 | ---- | ------------------------------------------------------------ |
@@ -12,7 +12,7 @@
 | 8    | Make the notes section, and successfully show/hide. (HTML,CSS,JS) |
 | 9    | Make the first calculator (HTML,CSS,JS)                      |
 | 10   | Make the second calculator (HTML,CSS,JS)                     |
-| 11   | Memoize Fibonnaci + Sort Lists of numbers, search lists of numbers. |
+| 11   | Memoize Fibonnaci                                            |
 
 Lesson 2 : (Coming Soon)
 
@@ -34,4 +34,12 @@ SVM's, and serving SVMs.
 
 MNIST Neural Net, and serving MNIST Neural Net.
 
-*The End.*
+**Lesson X :**
+
+Stacks, heaps. Computers operate on stacks, would a heap make sense?
+
+Every data structure in the book. Searching. Sorting.
+
+Making Custom Structs and Classes.
+
+Leetcode.com
