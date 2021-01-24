@@ -58,7 +58,7 @@
 
 
     <!-- divs are a neat way to group things together-->
-    <div class="mathstuff">
+    <div class="calculators">
 
         <!-- Our First Calculator -->
         <div class="abc">
@@ -199,17 +199,28 @@
         margin: 10px;
     }
 
-    /* Tabs the regular P tags*/
+    /* Adds tabs to text in all p tags, unless a class is added to the p tag*/
+    /* Class styling takes precedence over tag styling */
     p {
         margin: 0px;
         margin-left: 10px;
     }
 
+    /* Adds margins to the resource links */
     .resources {
         margin-left: 25px;
         margin-top: 10px;
     }
 
+    /* Adds margins to the note section */
+    .notesection {
+        margin: 20px;
+    }
+
+    /* Makes note section topic backgrounds pink */
+    /* display inline-block lets topics be next to eachother */
+    /* CSS is all about searching the resources websites and doing some trial and error*/
+    /* For example I searched "CSS how to have divs next to eachother horizontally" */
     .topic {
         margin: 5px;
         padding: 20px;
@@ -218,31 +229,31 @@
         background-color: pink;
     }
 
-
-    .notesection {
-        margin: 20px;
-    }
-
-
-    .mathstuff {
-        margin: 20px;
-    }
-
+    /* Makes tags with class note tabbed in more */
+    /* How I got the bullet points to be tabbed in more (I added class="note" to all of the bullet point lines.)*/
     .note {
         margin-left: 20px;
     }
 
+    /* margins for the calculators section */
+    .calculators {
+        margin: 20px;
+    }
+
+    /* margins and width of input boxes */
     input {
         margin: 5px;
         width: 5em;
     }
 
+    /* margins on all buttons */
     button {
         margin: 5px;
     }
 
+    /* margins and underline on all h4 tags */
     h4 {
-        /* I looked up "CSS how to underline" */
+        /* I looked up "CSS how to underline" on google, result was w3schools. */
         text-decoration: underline;
         margin-bottom: 5px;
     }
