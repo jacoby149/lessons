@@ -1,5 +1,5 @@
-# Intro-To-Programming
-Lesson 1 : HTML, CSS, JS
+# Programming
+<a href = "/lesson1.html">Lesson 1</a> : HTML, CSS, JS
 
 | Step | Task                                                         |
 | ---- | ------------------------------------------------------------ |
@@ -13,4 +13,16 @@ Lesson 1 : HTML, CSS, JS
 | 9    | Make the first calculator (HTML,CSS,JS)                      |
 | 10   | Make the second calculator (HTML,CSS,JS)                     |
 
-Lesson 2 : Canvas
+Lesson 2 : (Coming Soon)
+
+**Topics:** 
+
+Getting, Posting, Using an API Server from https://apipheny.io/free-api/ 
+
+Making an yahoo finance data API Server | repl.it
+
+Databases, Making a login.
+
+Saving text, images, files,JSON.
+
+*The End.*
