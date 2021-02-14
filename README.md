@@ -3,7 +3,7 @@
 
 | Step | Task                                                         |
 | ---- | ------------------------------------------------------------ |
-| 1    | Make GitHub Accounts, make a repo.                           |
+| 1    | Make GitHub Accounts, make a repo <yourusername>.github.io   |
 | 2    | Make an index.html, and push it to the repo.                 |
 | 3    | Make index.html with html, body, script, and style tags.     |
 | 4    | Write Hello My Name is ...                                   |
@@ -14,9 +14,28 @@
 | 10   | Make the second calculator (HTML,CSS,JS)                     |
 | 11   | Memoize Fibonnaci                                            |
 
+```
+Repl.it instructions
+1) Go to repl.it
+2) Connect with Github
+3) Open a Github Repo in Repl
+4) Make an index.html
+5) Write Hello
+6) set the language to PHP
+7) type the below code in the .replit file
+8) push to github
+```
+
+```
+language = "php7"
+run = "php -S 0.0.0.0:8000 -t ."
+```
+
 Lesson 2 : (Coming Soon)
 
-**Topics:** 
+
+
+**Potential Topics:** 
 
 Dictionaries, Lists.
 
