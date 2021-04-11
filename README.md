@@ -1,5 +1,5 @@
 # Intro To Programming
-<a href = "/lessons/overview.html">Overview</a> : HTML, CSS, JS
+<a href = "/lessons/overview.html">Overview</a> : HTML, CSS, JS + my contact info
 
 Lesson 1 : JS | <a href = "https://github.com/jacoby149/calculator">Reference Code Link!!!</a>
 
