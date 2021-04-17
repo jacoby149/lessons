@@ -366,7 +366,6 @@ input,
 label,
 select,
 textarea {
-    display: block;
     font-size: inherit;
     max-width: var(--width-card-wide);
 }

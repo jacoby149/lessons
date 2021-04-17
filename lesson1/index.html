@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="../mvp.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -11,22 +12,40 @@
     Lesson 1 || (+ - * / %) calculators
     <ol>
         <li>make a new repl html, css, js project</li>
-        <li>copy the <a href="lesson1">lesson 1</a> index.html,script.js, and style.css into the repl
+        <li>copy the <a href="https://github.com/jacoby149/lessons/tree/main/lesson1">lesson 1</a>
+            index.html, script.js, and style.css code into the repl
         </li>
-        <li>on github, go into the settings of the new repo, and set github pages to "main" and enable https </li>
-        <li>now go to repl.it, and sign in with github</li>
-        <li>in repl open your github repo yourusername.github.io as an html, css, js repl</li>
-        <li>open index.html and type "hello"</li>
-        <li>hit run at the top of the repl page. in the right pane, your website should say hello.</li>
-        <li>on repl, hit the github branch icon <img src="branch.webp" height="24px" /> , commit, and push your changes.
+        <li>in the repl console pane on the bottom right, type add(3,5) <i>hint: you should see 8</i></li>
+        <li>try doing the same for subtract, multiply, divide, and mod</li>
+        <li>notice subtract returns todo, and multiply causes an error because the function doesn't exist</li>
+        <li>go into script.js, and look at how the add function is written</li>
+        <li>in a computer, add is +, subtract is -, multiply is *, and divide is /</li>
+        <li>see the notes on the main course page on "JS Functions"</li>
+        <li>based on the add function, change the subtract function so it works correctly</li>
+        <li>write the multiply function from scratch</li>
+        <li>on repl, hit the github branch icon <img src="../images/branch.webp" height="24px" /> , commit, and push
+            your
+            changes
+            to a new repo named lesson1.
         </li>
     </ol>
-</body>
 
-<style>
-    body {
-        padding: 20px;
-    }
-</style>
+    Arithmetic Calculator :
+    <input type="number" id="a" /> ?
+    <input type="number" id="b" /> =
+    <input id="c" />
+    <br>
+    <button onclick="out(add)">add</button>
+    <button onclick="out(subtract)">subtract</button>
+    <button onclick="out(divide)">divide</button>
+    <button onclick="out(multiply)">multiply</button>
+
+    <!-- remainder of a/b -->
+    <button onclick="out(mod)">mod</button>
+    <br>in the repl console below, try typing add(3,5)
+    <script src="script.js"></script>
+
+
+</body>
 
 </html>
