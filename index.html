@@ -16,60 +16,88 @@
     <center>Contact Info || 347-209-2325 || jacob@greenstargroup.org</center>
 
 
-    <button onclick="showhide(lesson0)">Show/Hide - Overview</button>
-    <br>
-    <div id="lesson0" hidden>
-        <div id="overview">
+    <button onclick="showhide(resources)">Show/Hide Resources</button>
 
-            <div class="resources">
-                Platforms :
-                <a href="https://www.github.com"> GitHub</a> |
-                <a href="https://www.freenom.com"> Freenom</a> |
-                <a href="https://www.cloudflare.com"> Cloudflare</a> |
-                <a href="https://repl.it/"> repl.it</a> |
-                <a href="https://www.codepen.io"> Codepen</a>
-                <br>
+    <div id="resources" class="resources">
+        Platforms :
+        <a href="https://www.github.com"> GitHub</a> |
+        <a href="https://repl.it/"> repl.it</a>
+        <br>
 
-                Resources :
-                <a href="https://www.free-css.com/"> Free-CSS</a>
-                <a href="https://www.w3schools.com"> W3Schools</a> |
-                <a href="https://www.geeksforgeeks.org/"> GeeksForGeeks</a> |
-                <a href="https://www.stackoverflow.com">Stack Overflow</a>
-                <br>
+        Resources : google things that you don't know i.e. "js how to write a function"<br>
+        stack overflow, geeks for geeks, w3schools <br><br>
 
-                Lesson Code :
-                <a href="https://github.com/jacoby149/lessons">jacoby149/lessons</a>
-            </div>
+        Free Domain Names :
+        <a href="https://www.freenom.com"> Freenom</a> |
+        <a href="https://www.cloudflare.com"> Cloudflare</a>
+        <br>
 
-            <div class="notesection" id="notesection">
-                <div class="topic">
-                    <h4> Languages </h4>
-                    <p><b>HTML</b> : A Markup Language.</p>
-                    <p class="note">* Markup languages are for writing formatted documents.</p>
-                    <br>
-                    <p><b>CSS</b> : A Styling Language.</p>
-                    <p class="note">* A styling language modifies the way HTML documents look.</p>
-                    <br>
-                    <p><b>Javascript</b> (JS abbreviated) : A programming language.</p>
-                    <p class="note">* The main programming language on websites.</p>
-                    <p class="note">* Entirely different from Java. (confusing)</p>
-                </div>
-                <div class="topic">
-                    <h4>Tags</h4>
-                    <p><b>html</b> tag</p>
-                    <p class="note">* where the body, script, and style tags go inside</p>
-                    <p><b>body</b> tag </p>
-                    <p class="note">* for text, images, inputs, buttons</p>
-                    <p><b>script</b> tag </p>
-                    <p class="note"> * script tags are for writing javascript code</p>
-                    <p class="note"> * can modify anything! body, style (and more).</p>
-                    <p><b>style</b> tag </p>
-                    <p class="note">* for setting format of things in the body</p>
-                </div>
-            </div>
+        Lesson Code :
+        <a href="https://github.com/jacoby149/lessons">jacoby149/lessons</a>
+    </div><br>
+
+
+    <button onclick="showhide(notesection)">Show/Hide Course Notes</button>
+
+    <div class="notesection" id="notesection" hidden>
+        <div class="topic">
+            <h4> Languages </h4>
+            <p><b>HTML</b> : A Markup Language.</p>
+            <p class="note">* Markup languages are for writing formatted documents.</p>
+            <br>
+            <p><b>CSS</b> : A Styling Language.</p>
+            <p class="note">* A styling language modifies the way HTML documents look.</p>
+            <br>
+            <p><b>Javascript</b> (JS abbreviated) : A programming language.</p>
+            <p class="note">* The main programming language on websites.</p>
+            <p class="note">* Entirely different from Java. (confusing)</p>
+        </div>
+        <div class="topic">
+            <h4>Tags</h4>
+            <p><b>html</b> tag</p>
+            <p class="note">* where the body, script, and style tags go inside</p>
+            <p><b>body</b> tag </p>
+            <p class="note">* for text, images, inputs, buttons</p>
+            <p><b>script</b> tag </p>
+            <p class="note"> * script tags are for writing javascript code</p>
+            <p class="note"> * can modify anything! body, style (and more).</p>
+            <p><b>style</b> tag </p>
+            <p class="note">* for setting format of things in the body</p>
+        </div>
+        <div class="topic">
+            <h4>JS Functions</h4>
+            <p>
+                <b>1 </b>function add(a,b){ <br>
+                <b>2 </b>&emsp;var answer = a+b;<br>
+                <b>3 </b>&emsp;return answer;<br>
+                <b>4 </b>}<br>
+                <b>5 </b>var x = add(3,5);<br>
+                <b>6 </b>console.log(x);<br>
+                On line 1, a function named add is being defined here with two inputs.<br>
+                On line 2, a variable answer is made and set to the sum of the two inputs.<br>
+                On line 3, answer is outputted from the function by the return statement.<br>
+                On line 4, the function is closed with a curly brace.<br>
+                On line 5, the add function is called on 3 and 5, and a new variable x is set to the output.<br>
+                On line 6, the value of x is outputted to the console => 8
+
+            </p>
         </div>
 
     </div>
+
+    <ul>
+        <li><a href="lesson0/index.html">Lesson 0 || github pages "Hello" website</a> ✓</li>
+        <li><a href="lesson1/index.html">Lesson 1 || (+ - * / %) calculators</a> ✓</li>
+        <li><a href="lesson2/index.html">Lesson 2 || functions, vars, document selectors </a></li>
+        <div hidden>
+            <li><a href="lesson3/index.html">Lesson 3 || even, odd, prime, composite calculators </a></li>
+            <li><a href="lesson4/index.html">Lesson 4 || free fall simulation </a></li>
+            <li><a href="lesson5/index.html">Lesson 5 || experiment logger </a></li>
+            <li><a href="lesson6/index.html">Lesson 6 || projectile motion simulation</a></li>
+            <li><a href="lesson7/index.html">Lesson 7 || ramp fall simulation </a></li>
+            <li><a href="lesson8/index.html">Lesson 8 || single pendulum simulation </a></li>
+        </div>
+    </ul>
 
     <button onclick="showhide(lesson1)">Show/Hide Lesson 1 - Arithmetic Calculators</button>
     <div id="lesson1" hidden>
@@ -92,7 +120,7 @@
     </div>
     <br>
 
-    <button onclick="showhide(nth)">Show/Hide Lesson 2 - Nth Number Calculators</button>
+    <button onclick="showhide(nth)">Show/Hide Lesson 3 - Nth Number Calculators</button>
     <div id="lesson2">
         <div id="nth" class="calculator" hidden>
             <!-- Our Second Calculator -->
