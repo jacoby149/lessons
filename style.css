@@ -35,6 +35,11 @@ p {
     background-color: pink;
 }
 
+.related {
+    
+    display: inline-block;
+}
+
 /* Makes tags with class note tabbed in more */
 /* How I got the bullet points to be tabbed in more (I added class="note" to all of the bullet point lines.)*/
 .note {
