@@ -1,0 +1,34 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+  color:white;
+  background-color:#000;
+}
+
+/* ---- grid ---- */
+
+.grid {
+  background: #000;
+  max-width: 1200px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #0D8;
+  border: 4px solid #000;
+}
+
+.grid-item--width2 { width: 200px; }
+.grid-item--height2 { height: 200px; }
