@@ -261,14 +261,6 @@ sup {
     top: -2px;
 }
 
-/* Links */
-a {
-    color: var(--color);
-    display: inline-block;
-    font-weight: bold;
-    text-decoration: none;
-}
-
 a:hover {
     filter: brightness(var(--hover-brightness));
     text-decoration: underline;

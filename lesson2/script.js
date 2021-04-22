@@ -18,6 +18,8 @@
 //initilization of canvas and ctx variables 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth * .4;
+canvas.height = window.innerWidth * .25;
 
 //ball physics initialization
 var x = canvas.width / 2; //horizontal location
