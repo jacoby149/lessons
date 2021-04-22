@@ -115,7 +115,6 @@ function control(event) {
 }
 
 function frame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     model();
     view();
 }
