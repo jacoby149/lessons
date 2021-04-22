@@ -1,82 +1,124 @@
-////////////////////////////////
-///// ignore these 
-////////////////////////////////
+//////////////////////////////////////////
+// source : 
+// https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball
+//////////////////////////////////////////
 
-// external js: isotope.pkgd.js
-$('.grid').isotope({
-    itemSelector: '.grid-item',
-    masonry: {
-        columnWidth: 100
-    }
-});
-//adding random element getter to js arrays
-Array.prototype.random = function () {
-    return this[Math.floor((Math.random() * this.length))];
+///////////////////////////////////////////////////////////
+//// model view control (MVC) - 
+//// a design strategy where you separate viewing, data modeling, and controlling into separate functions.
+//// see the functions model(), view(), and control() below.
+//// the frame function call model() and view(), frames happen every 10 milliseconds
+//// controls are handled separately outside of the frame function() 
+///////////////////////////////////////////////////////////
+
+/////////////////////////////////
+//////  initialization //////////
+/////////////////////////////////
+
+//initilization of canvas and ctx variables 
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+//ball physics initialization
+var x = canvas.width / 2; //horizontal location
+var y = canvas.height / 2; //vertical location
+var vx = 2; //init. horizontal speed
+var vy = 0; //init. vertical speed
+var ay = 1; //vertical acceleration (gravity)
+var radius = 10; //radius of the ball
+var vertFloorReboundSpeed = null; //vertical floor rebound speed of the ball (we will get this on the first ball bounce)
+
+//environment initialization
+var leftWall = 0; //hor. location of the left wall
+var rightWall = canvas.width; //hor. location of the right wall
+floor = canvas.height - radius; //vert. location of the ball when it touches the floor
+
+//time initialization
+var timeLast = Date.now() //init. time to right now
+//controls how fast time passes
+var simSpeed = .03
+
+
+///////////////////////////
+///// view functions //////
+///////////////////////////
+
+function viewBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
+
+//functionality for viewing
+function view() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    viewBall();
 }
 
 
 ///////////////////////////
-//box modifying functions
+//// model functions //////
 ///////////////////////////
 
-//sets the color of a box in row i, column j to color c
-function setColor(c, i, j) {
-    var row = document.getElementsByClassName("grid")[i];
-    var box = row.getElementsByClassName("grid-item")[j];
-    box.style.backgroundColor = c;
-}
-//adds a grid row to the bigBox div element.
-function addRow() {
-    bigBox.innerHTML += `<div class="grid"></div>`;
-}
-//adds a box to the grid row with specified number.
-function addBox(rowNumber) {
-    var row = bigBox.getElementsByClassName('grid')[rowNumber];
-    row.innerHTML += `<div class="grid-item"></div>`
-}
+function modelBall(dT) {
 
+    //floor bounce
+    if (y >= floor && vy >= 0) {
 
-///////////////////////////////
-////// grid functions
-///////////////////////////////
+        //if we did this the ball would bounce higher and higher due to computer rounding errors.
+        //vy = -vy;
 
-//gets alot of grid items all in the same row
-function grid1(n) {
-    bigBox.style.width = 'auto';
-    bigBox.style.maxWidth = 900;
-    var interval = 100;
-    var colors = ["red", "orange", "yellow"];
-    addRow();
-    for (let i = 0; i < n; i++) {
-        //addBox(0);
-        setTimeout(() => { addBox(0); setColor(colors.random(), 0, i); }, i * interval);
+        //instead, we store the vertical velocity on the first bounce, and re use it on later bounces.
+        //this way the ball always bounces back to the same height.
+        if (vertFloorReboundSpeed == null) vertFloorReboundSpeed = -vy;
+        vy = vertFloorReboundSpeed;
     }
-}
-//get a rowsxcolumns sized grid with rows rows.
-function grid2(numRows, numCols) {
-    bigBox.style.width = 900;
-    var interval = 200;
-    //don't use var in for loops.
-    //change the lets to var, and watch it break.
-    for (let i = 0; i < numRows; i++) {
-        addRow();
-        for (let j = 0; j < numCols; j++) {
-            //addBox(i);
-            setTimeout(() => { addBox(i); setColor("white", i, j) }, (-i + j) * interval)
-        }
+    //right wall bounce
+    else if (x >= rightWall && vx >= 0) {
+        vx = -vx;
+    }
+    //left wall bounce
+    else if (x <= leftWall && vx <= 0) {
+        vx = - vx;
+    }
+    else {
+        //otherwise, update the ball position normally
+        x += vx * dT;
+        y += vy * dT;
+        vy += ay * dT;
     }
 }
 
-//write your own function grid3 from scratch
+function model() {
+    time = Date.now()
+    dT = (time - timeLast) * simSpeed; //change in time since the last frame
+    modelBall(dT)
+    timeLast = time;
+}
 
+function control(event) {
+    var m = 15;
+    switch (event.code) {
+        case "KeyS":
+            y = y + m;
+        case "KeyW": //todo
+            return;
+        case "KeyA": //todo
+            return;
+        case "KeyD": //todo
+            return;
+        default:
+            return; // Quit when this doesn't handle the key event.
+    }
+}
 
-////////////////////////////////
-//// choosing a grid
-////////////////////////////////
+function frame() {
+    model();
+    view();
+}
+document.addEventListener('keydown', control);
 
-var gridChoice = 1
-if (gridChoice == 1) {
-    grid1(100);
-} else if (gridChoice == 2) {
-    grid2(5, 20);
-}  //add your own grid3 function here.
+//runs the frame function every 10 milliseconds
+setInterval(frame, 10);
