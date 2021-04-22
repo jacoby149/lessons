@@ -40,7 +40,7 @@ function addBox(rowNumber) {
 ////// grid functions
 ///////////////////////////////
 
-//gets alot of grid items all in the same row
+//makes a one row grid that overflows with random colors.
 function grid1(n) {
     bigBox.style.width = 'auto';
     bigBox.style.maxWidth = 900;
@@ -52,7 +52,8 @@ function grid1(n) {
         setTimeout(() => { addBox(0); setColor(colors.random(), 0, i); }, i * interval);
     }
 }
-//get a rowsxcolumns sized grid with rows rows.
+
+//makes a numRows x numCols grid that grows diagonally in the direction <-1,1>
 function grid2(numRows, numCols) {
     bigBox.style.width = 900;
     var interval = 200;
@@ -67,6 +68,58 @@ function grid2(numRows, numCols) {
     }
 }
 
+//simplest numrows by numcols grid
+function simpleGrid(numRows, numCols) {
+    for (let i = 0; i < numRows; i++) {
+        addRow();
+        for (let j = 0; j < numCols; j++) {
+            addBox(i);
+        }
+    }
+}
+
+//initialization of my location in grid 3
+var x = 3;
+var y = 3;
+var w = 10;
+var h = 6;
+
+function control(event) {
+    switch (event.code) {
+        case "KeyS":
+            y = (h + y + 1) % h;
+            break;
+        case "KeyW":
+            y = (h + y - 1) % h;
+            break;
+        case "KeyA":
+            x = (w + x - 1) % w;
+            break;
+        case "KeyD":
+            x = (w + x + 1) % w;
+            break;
+        default:
+            return; // Quit when this doesn't handle the key event.
+    }
+}
+
+function view() {
+    simpleGrid(h, w); //draw the background
+    setColor("white", y, x); //draw your location
+}
+
+// a model() function would be necessary if the game was more complicated.
+function frame() {
+    bigBox.innerHTML = "" //clear the frame
+    view();
+}
+
+function game() {
+    setInterval(frame, 10);
+    document.addEventListener('keydown', control);
+    return;
+}
+
 //write your own function grid3 from scratch
 
 
@@ -74,9 +127,14 @@ function grid2(numRows, numCols) {
 //// choosing a grid
 ////////////////////////////////
 
+//change your grid choice here
 var gridChoice = 1
+
+//logic to display the correct grid
 if (gridChoice == 1) {
-    grid1(100);
+    grid1(30);
 } else if (gridChoice == 2) {
-    grid2(5, 20);
-}  //add your own grid3 function here.
+    grid2(5, 10);
+} else if (gridChoice == 3) {
+    game();
+}//add your own grid function here.
