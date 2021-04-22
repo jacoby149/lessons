@@ -28,19 +28,5 @@ function grid1(n) {
     }
 }
 
-//get a rowsxcolumns sized grid with rows rows.
-function grid2(numRows, numCols) {
-    for (var i = 0; i < numRows; i++) {
-        addRow();
-        for (var j = 0; j < numCols; j++) {
-            addBox(i);
-        }
-    }
-}
-
-
-//bigBox.style.width = 'auto';
-//grid1(161);
-
-bigBox.style.width = 900;
-grid2(10, 20);
+bigBox.style.width = 'auto';
+grid1(161);
