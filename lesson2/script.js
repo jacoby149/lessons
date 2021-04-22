@@ -7,28 +7,40 @@ $('.grid').isotope({
     }
 });
 
-//make a grid row with n boxes
-function getGridRow(n) {
-    var boxes = '';
-    //for every number from zero to n-1, add a grid-item
-    for (var i = 0; i < n; i++) {
-        boxes += `<div class = "grid-item"></div>`
-    }
-    //add the columns into the grid row.
-    return `<div class="grid">${boxes}</div>`;
+//adds a grid row to the bigBox div element.
+function addRow() {
+    bigBox.innerHTML += `<div class="grid"></div>`;
 }
-function getGrid(rows, cols) {
-    for (var i = 0; i < rows; i++) {
-        bigBox.innerHTML += getGridRow(cols);
-    }
+
+//adds a box to the grid row with specified number.
+function addBox(rowNumber) {
+    var rows = bigBox.getElementsByClassName('grid');
+    var row = rows[rowNumber];
+    row.innerHTML += `<div class="grid-item"></div>`
 }
 
 //gets alot of grid items all in the same row
-function getGridItems(n) {
-    return getGrid(1, n);
+function grid1(n) {
+    addRow();
+    for (var i = 0; i < n; i++) {
+        addBox(0);
+        //setTimeout(() => addBox(0), i * 200);
+    }
 }
 
-getGridItems(161);
-bigBox.style.width = 'auto';
-//bigBox.style.width = 900;
-//viewGrid(10, 20);
+//get a rowsxcolumns sized grid with rows rows.
+function grid2(numRows, numCols) {
+    for (var i = 0; i < numRows; i++) {
+        addRow();
+        for (var j = 0; j < numCols; j++) {
+            addBox(i);
+        }
+    }
+}
+
+
+//bigBox.style.width = 'auto';
+//grid1(161);
+
+bigBox.style.width = 900;
+grid2(10, 20);
