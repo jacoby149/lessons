@@ -3,8 +3,8 @@
 ////////////////////////////////
 
 // external js: isotope.pkgd.js
-$('.grid').isotope({
-    itemSelector: '.grid-item',
+$('.row').isotope({
+    itemSelector: '.box',
     masonry: {
         columnWidth: 100
     }
@@ -19,16 +19,17 @@ Array.prototype.random = function () {
 //grid helper functions
 ///////////////////////////
 
+
 //get row i in the grid
 function getRow(i) {
-    var rows = document.getElementsByClassName("grid")
+    var rows = document.getElementsByClassName("row")
     return rows[i];
 }
 
 //get box j from row i in the grid.
 function getBox(i, j) {
     var row = getRow(i);
-    var boxes = row.getElementsByClassName("grid-item");
+    var boxes = row.getElementsByClassName("box");
     return boxes[j]
 }
 
@@ -39,12 +40,12 @@ function setColor(c, i, j) {
 }
 //adds a grid row to the grid.
 function addRow() {
-    gridContainer.innerHTML += `<div class="grid"></div>`;
+    gridContainer.innerHTML += `<div class="row"></div>`;
 }
 //adds a box to row i in the grid.
 function addBox(i) {
     var row = getRow(i);
-    row.innerHTML += `<div class="grid-item"></div>`;
+    row.innerHTML += `<div class="box"></div>`;
 }
 
 
