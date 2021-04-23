@@ -103,12 +103,13 @@ function control(event) {
     switch (event.code) {
         case "KeyS":
             y = y + m;
+            break;
         case "KeyW": //todo
-            return;
+            break;
         case "KeyA": //todo
-            return;
+            break;
         case "KeyD": //todo
-            return;
+            break;
         default:
             return; // Quit when this doesn't handle the key event.
     }
