@@ -13,13 +13,13 @@ body {
   width:900px;
 }
 
-.row {
+.grid {
   background: #000;
   max-width: 1200px;
 }
 
 /* clear fix */
-.row:after {
+.grid:after {
   content: '';
   display: block;
   clear: both;
@@ -27,7 +27,7 @@ body {
 
 /* ---- .grid-item ---- */
 
-.box {
+.grid-item {
   float: left;
   width: 40px;
   height: 40px;
@@ -35,5 +35,5 @@ body {
   border: 4px solid #000;
 }
 
-.box--width2 { width: 200px; }
-.box--height2 { height: 200px; }
+.grid-item--width2 { width: 200px; }
+.grid-item--height2 { height: 200px; }
