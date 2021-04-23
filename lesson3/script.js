@@ -142,7 +142,7 @@ function initGame() {
 ///////////////////////////////////
 
 //change your grid choice here
-var gridChoice = 1
+var gridChoice = 2;
 
 //logic to display the correct grid
 if (gridChoice == 1) {
