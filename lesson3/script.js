@@ -3,8 +3,8 @@
 ////////////////////////////////
 
 // external js: isotope.pkgd.js
-$('.grid').isotope({
-    itemSelector: '.grid-item',
+$('.row').isotope({
+    itemSelector: '.box',
     masonry: {
         columnWidth: 100
     }
@@ -22,14 +22,14 @@ Array.prototype.random = function () {
 
 //get row i in the grid
 function getRow(i) {
-    var rows = document.getElementsByClassName("grid")
+    var rows = document.getElementsByClassName("boxRow")
     return rows[i];
 }
 
 //get box j from row i in the grid.
 function getBox(i, j) {
     var row = getRow(i);
-    var boxes = row.getElementsByClassName("grid-item");
+    var boxes = row.getElementsByClassName("box");
     return boxes[j]
 }
 
@@ -40,12 +40,12 @@ function setColor(c, i, j) {
 }
 //adds a grid row to the grid.
 function addRow() {
-    gridContainer.innerHTML += `<div class="grid"></div>`;
+    gridContainer.innerHTML += `<div class="boxRow"></div>`;
 }
 //adds a box to row i in the grid.
 function addBox(i) {
     var row = getRow(i);
-    row.innerHTML += `<div class="grid-item"></div>`;
+    row.innerHTML += `<div class="box"></div>`;
 }
 
 
@@ -59,7 +59,7 @@ function grid1(n) {
     gridContainer.style.maxWidth = 900;
     var interval = 100;
     //this is called an array, it can hold multiple values
-    var colors = ["red", "orange", "yellow"];
+    var colors = ["orange", "yellow", "red"];
     addRow();
     for (let i = 0; i < n; i++) {
         //addBox(0);
@@ -93,7 +93,7 @@ function grid3(rows, cols) {
 }
 
 // try and copy grid 1,2, or 3, and write your own grid4() here
-function grid4() {
+function grid4(rows, cols) {
     return;
 }
 
@@ -142,7 +142,7 @@ function initGame() {
 ///////////////////////////////////
 
 //change your grid choice here
-var gridChoice = 2;
+var gridChoice = 1;
 
 //logic to display the correct grid
 if (gridChoice == 1) {
