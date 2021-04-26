@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../index.html">Go Back</a>
+    <br>
+    <br>
+    <div id="lesson"><b>Lesson 2 </b>|| free fall simulation</div>
+
+    <ol>
+        <b>Getting Started</b>
+
+        <li>make a new repl html, css, js project</li>
+        <li>copy the <a href="https://github.com/jacoby149/lessons/tree/main/lesson2">lesson 2</a>
+            index.html, script.js, and style.css code into the repl
+        </li>
+        <li>hit run on the repl, you should see a bouncing ball if you scroll down.</li>
+        <li>feel free to delete the directions in the index.html file, since they are already on this page.</li>
+        <li>in script.js, read the comment on model view control</li>
+    </ol>
+    <ol>
+        <b>Changing Initialization Variables</b>
+        <li>go to the "//ball physics initialization" comment</li>
+        <li>try changing x to canvas.width/4, and re run the repl. what happens?</li>
+        <li>try changing vx to -2 and re run the repl. what happens?</li>
+        <li>mess with the other ball physics initialization variables. put them back to normal when you are done.</li>
+        <li>i wouldnt mess with the environment initialization variables, or time initialization.</li>
+        <li>the only one worth messing with is simSpeed, try changing it to .05</li>
+    </ol>
+    <ol>
+        <b>Understanding View and Model</b>
+        <li>The view() function clears the canvas element every frame to delete the last frame.</li>
+        <li>Delete the line, ctx.clearRect(0, 0, canvas.width, canvas.height). re run the repl. what happens?
+        <li>put the line back</li>
+        <li>the viewBall() function draws the ball on the screen.</li>
+        <li>the model() function calculates the change in time from the last frame, and passes the change in time into
+            modelBall</li>
+        </li>
+    </ol>
+    <ol><b>modelBall() </b>
+        <li>Model ball has an if statement for bouncing off of the floor, one for the left wall, and one for the right
+            wall.</li>
+        <li>The left wall and right wall conditions flip the balls horizontal velocity on impact.</li>
+        <li>The floor bounce sets the balls vertical velocity to an exact value, otherwise computational rounding makes
+            the ball bounce higher and higher.</li>
+        <li>If you have gotten this far, see the control() function. in repl, hit the S key and see what happens.</li>
+        <li>Try hooking up the other controls in the control function(). </li>
+    </ol>
+    <ol><b>Wrapping up.</b>
+        <li>on repl, hit the github branch icon <img src="../branch.webp" height="24px" /> , commit, and push
+            your
+            changes
+            to a new repo named lesson4.</li>
+        <li>In github, you can go to the settings of your new lesson4 repo, github pages, choose main. Enforce https.
+        </li>
+        <li>go to yourusername.github.io/lesson4 and see if its up.</li>
+        <li>you can do this for any github repository :)</li>
+    </ol>
+
+    <canvas id="myCanvas" width="500" height="300"></canvas>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
