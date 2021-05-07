@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+
+body {
+  margin-left:20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:#000;
+}
+
+/* ---- grid ---- */
+
+#bigBox{
+  width:900px;
+}
+
+.boxRow {
+  background: #000;
+  max-width: 1200px;
+}
+
+/* clear fix */
+.boxRow:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.box {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: #d80;
+  border: 2px solid #000;
+}
+
+.box--width2 { width: 200px; }
+.box--height2 { height: 200px; }
