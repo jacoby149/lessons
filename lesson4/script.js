@@ -13,7 +13,8 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 canvas.width = Math.floor(window.innerWidth * .4);
 
-//ball array initialization
+//balls array
+//list of all ball objects, currently set to an empty list.
 var balls = [];
 
 //environment initialization
@@ -26,7 +27,7 @@ var timeLast = Date.now(); //init. time to right now
 var simSpeed = .03; //controls how fast time passes
 
 //initializes a new ball
-function initBall() {
+function initBall(inputColor) {
     //ball is a dictionary. it is a collection of key value pairs.
     //key:value,key:value
     var ball = {
@@ -37,7 +38,7 @@ function initBall() {
         ay: 1,
         radius: 10,
         floorSpeed: null,
-        color: "#0095DD"
+        color: "black"
     };
     //push the ball dictionary onto the array of balls
     balls.push(ball);
@@ -94,7 +95,11 @@ function control(event) {
     switch (event.code) {
         case "Space":
             console.log("space hit");
-            initBall();
+            initBall("pink");
+            break;
+        case "KeyW":
+            console.log("w hit");
+            initBall("green");
             break;
         default:
             return; // Quit when this doesn't handle the key event.
