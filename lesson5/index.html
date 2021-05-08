@@ -19,32 +19,38 @@
 
     <ol>
         <b>Getting Started</b>
-        <li>read the notes section on jacobhoffman.tk/lessons on arrays, for loops, and getElementByClassName.</li>
         <li>make a new repl html, css, js project</li>
-        <li>copy the <a href="https://github.com/jacoby149/lessons/tree/main/lesson3">lesson 3</a>
+        <li>copy the <a href="https://github.com/jacoby149/lessons/tree/main/lesson5">lesson 5</a>
             index.html, script.js, and style.css code into the repl
         </li>
-        <li>hit run on the repl, you should see a grid of squares coming on the screen</li>
-        <li>feel free to delete the directions in the index.html file, since they are already on this page.</li>
-        <li>go to the bottom of the code, where it says var "gridChoice = 3" </li>
-        <li>try changing the variable from 1 to 5, what happens for each one?</li>
+        <li>we are going to debug model, view, and control functionality.</li>
+        <li>model view control is an excellent design for games. (review lesson 2 for details on MVC)</li>
     </ol>
 
     <ol>
-        <b>Grid Changes</b>
-        <li>set gridchoice = 1</li>
-        <li>go to the grid1() function</li>
-        <li>change "red" in the array to "blue"
-        </li>
-        <li>hit run on the repl, what happens?</li>
-        <li>try adding some additional colors you like.</li>
-        <li>set gridchoice = 2</li>
-        <li>go to the grid2() function</li>
-        <li>change "(-i + j)" to "(i+j)" . what happens? how about "(2*i + j)"?</li>
-        </li>
-        <li>set gridchoice = 3 and go to grid3(). this is a very simple grid function</li>
-        <li>challenge : set gridchoice = 4 and try writing your own grid4() function</li>
-        <li> set gridchoice = 5 and try hitting the wasd keys. look through the code in the grid game section.</li>
+        <b>Debugging View()</b>
+        <li>ctrl-f "function view"</li>
+        <li>the view function clears the last frame, redraws the background, and redraws the snake</li>
+        <li>the viewSnake function is broken, read the comments in it and fix the function.</li>
+        <li>press the r key, what does it do?</li>
+    </ol>
+
+    <ol>
+        <b>Debugging Control()</b>
+        <li>ctrl-f "function control"</li>
+        <li>see the S key controls which work. make the W,A,and D keys work.</li>
+    </ol>
+
+    <ol>
+        <b>Debugging Model()</b>
+        <li>ctrl f "function model". the model() function calls a function that moves the snake every frame</li>
+        <li>read the comments in the move function, and fix the move function so that the tail of the snake recedes when
+            the head of the snake extends.</li>
+    </ol>
+
+    <ol>
+        <b>Wrapping Up</b>
+        <li>publish the lesson as a website on github pages (see lesson 2 instructions)</li>
     </ol>
 
 
