@@ -44,6 +44,10 @@ function initBall(inputColor) {
     balls.push(ball);
 }
 
+function destroyBall() {
+    balls.pop();
+}
+
 ///////////////////////////
 //// model functions //////
 ///////////////////////////
