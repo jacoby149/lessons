@@ -1,0 +1,40 @@
+<html>
+
+<head></head>
+
+<body>
+    Realm Atlas Demo
+    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+    <script>
+        async function loginAnonymous() {
+            // Create an anonymous credential
+            const credentials = Realm.Credentials.anonymous();
+            try {
+                // Authenticate the user
+                const user = await app.logIn(credentials);
+                // `App.currentUser` updates to match the logged in user
+                return user
+            } catch (err) {
+                console.error("Failed to log in", err);
+            }
+        }
+        async function loadScores(user) {
+            try {
+                const score = await user.functions.loadScores("heehee");
+                return score;
+            } catch (err) {
+                console.error("Couldn't load scores", err);
+            }
+        }
+
+        const app = new Realm.App({ id: "application-0-itzry" });
+        loginAnonymous().then(user => {
+            console.log("Successfully logged in!", user)
+            loadScores(user).then(score => {
+                console.log(score)
+            });
+        })
+    </script>
+</body>
+
+</html>
