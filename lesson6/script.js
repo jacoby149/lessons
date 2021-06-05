@@ -57,7 +57,7 @@ function inSnake(c) {
 ///// initiallize snake game
 /////////////////////////////////
 var width = 15; var height = 15;
-var score = null;
+var score = null;var highScore = 0;
 var vX = null; var vY = null; //speed of the snake
 var snake = null;
 var food = null;
@@ -127,6 +127,8 @@ function model() {
     eaten = foodModel(); // manage food logic
     move(eaten);
     score += eaten;
+    highScore = Math.max(score,highScore);
+
 }
 
 
@@ -174,8 +176,11 @@ function view() {
     viewMap(width, height);
     viewSnake();
     viewFood();
-    if (gameOver) gameMessage.innerHTML = `Game Over! Score : ${score}`;
-    else gameMessage.innerHTML = `Playing Snake! Score : ${score}`;
+    if (gameOver)gameMessage.innerHTML = `Game Over! Press 'R' to retry. Score : ${score}`;
+    else {
+        highScoreMessage.innerHTML = `High Score : ${highScore}`;
+        gameMessage.innerHTML = `Playing Snake! Score : ${score}`;
+    }
 }
 
 
