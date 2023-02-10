@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.7.4/mvp.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../index.html">Go Back</a>
+    <br>
+    <br>
+    <b>Lesson 9</b> || web10 messaging app
+    <br><br>
+    <b>messaging + P2P webrtc streaming</b>
+    <ol>
+        <li>make a new repl html, css, js project</li>
+        <li>copy all of the <a href="https://github.com/jacoby149/lessons/tree/main/lesson9">lesson 9 files into the
+                repl</a>
+        </li>
+        <li>for mail, only you should be able to read your inbox.</li>
+        <li>however, you will need to let others create mail to your inbox</li>
+        <li>to do so, in script.js, uncomment out the whitelist create entry</li>
+        <li>also, add the url of your github pages site to the list of cross_origins.</i></li>
+        <li>as a user, if you log in and approve, you should be able to write messages!</li>
+        <li>try sending a message to a classmate. you will need to reload the page.</li>
+        <li>we will use webRTC to make it so you won't need to reload the page to see messages.</li>
+        <li>uncomment out the webRTC section of the mail app.</li>
+        <li>now try sending messages, they should instantly load for your friends.</li>
+    </ol>
+    <br>
+    <b>Payment Processing</b>
+    <ol>
+        <li>we are going to charge users for a premium blue mail application background</li>
+        <li>on https://auth.web10.app, fill out the web10 devpay form.</li>
+        <li>uncomment out the payment integration code. </li>
+        <li>put your business ID into the script.js from your auth portal settings.</li>
+        <li><i>hint: you should have a business ID if you filled out the stripe devpay form.</i></li>
+        <li>Hit the pay button, and pay with the credit card 4242.4242.4242.4242
+        </li>
+        <li>if you successfully pay, your mailer should be dark blue! the premium mailer color!</li>
+        <li>on repl, hit the github branch icon <img src="../branch.webp" height="24px" /> , commit, and push
+            your
+            changes
+            to a new repo named lesson9.
+        </li>
+        <li>Congratulations! you made your first monetized web10 app!</li>
+    </ol>
+
+    <br>
+
+    <div class="main">
+        <button id="authButton">
+            log in
+        </button>
+        <p id="message">
+            app not started
+        </p>
+        <div id="subscriptionStatus">awaiting subscription check</div>
+        <br>
+        <div>
+            <div>
+                <input class="" id="recipient" placeholder="recipient">
+                <input class="" id="web10server" placeholder="web10server" value="api.web10.app">
+            </div>
+            <div>
+                <textarea id="curr" placeholder="write message here"></textarea>
+            </div>
+            <div>
+                <button onclick="createMail(curr.value,recipient.value,web10server.value)">create mail</button>
+            </div>
+        </div>
+        <div id="mailview"></div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/web10-npm/dist/wapi.js"></script>
+<script src="script.js"></script>
+
+</html>
