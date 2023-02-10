@@ -37,15 +37,18 @@
 
     <br>
 
-    <button class="button is-small" id="authButton">
+    <button id="authButton">
         log in
     </button>
     <p id="message">
         app not started
     </p>
-
+    <div>
+        <textarea id="curr" placeholder="write a note here"></textarea>
+        <button onclick="createNote(curr.value)">create note</button>
+    </div>
+    <div id="noteview"></div>
 </body>
-<!-- Installing using CDN -->
 <script src="https://unpkg.com/web10-npm/dist/wapi.js"></script>
 <script src="script.js"></script>
 
