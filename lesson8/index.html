@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.7.4/mvp.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../index.html">Go Back</a>
+    <br>
+    <br>
+    <b>Lesson 8</b> || web10 notes app
+    <ol>
+        <li>make a new repl html, css, js project</li>
+        <li>copy all of the <a href="https://github.com/jacoby149/lessons/tree/main/lesson8">lesson 8 files into the repl</a>
+        </li>
+        <li>you will need to ask user permission to CRUD user notes.</li>
+        <li>to do so, in script.js, add the url of your github pages site to the list of cross_origins.</i></li>
+        <li>as a user, if you log in and approve, you should be able to CRUD notes!</li>
+        <li>lets make a web10 social post integration.</li>
+        <li>uncomment our the posts service in the SMR.</li>
+        <li>log out and log in, there should request for the posts service!</li>
+        <li>finish the create_posts function. </li>
+        <li><i> hint: look at create notes, what is create_posts missing?</i></li>
+        <li>try changing the name your app in the manifest.json.</li>
+        <li>look at the app store. Congrats on making a notes app!</li>
+        <li>Not only that, you integrated it with web10 social!</li>    
+        <li>next to any note of yours, hit the post button to publicly share it on web10 social.</li>
+        <li>the note will appear as a post in your social feed.</li>
+        <li>on repl, hit the github branch icon <img src="../branch.webp" height="24px" /> , commit, and push
+            your
+            changes
+            to a new repo named lesson7.
+        </li>
+    </ol>
+
+    <br>
+
+    <button id="authButton">
+        log in
+    </button>
+    <p id="message">
+        app not started
+    </p>
+    <div>
+        <textarea id="curr" placeholder="write a note here"></textarea>
+        <button onclick="createNote(curr.value)">create note</button>
+    </div>
+    <div id="noteview"></div>
+</body>
+<script src="https://unpkg.com/web10-npm/dist/wapi.js"></script>
+<script src="script.js"></script>
+
+</html>

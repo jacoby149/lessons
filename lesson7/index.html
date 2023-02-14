@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.7.4/mvp.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../index.html">Go Back</a>
+    <br>
+    <br>
+    <b>Lesson 7</b> || intro to web10 + web10 hello world
+
+    <br><br>
+    <b>Make a Web10 Account + Identity</b>
+    <ol>
+        <li>go to the web10 app store, and click on web10 social.</li>
+        <li>hit the login button</li>
+        <li>if you haven't signed up for web10, sign up for web10 + verify your phone number! </li>
+        <li>go to the my bio page, change the photo, bio, and name</li>
+        <li>add some other people in the class as contacts.</li>
+        <li>congratulations, you made a web10 decentralized identity / account</li>
+    </ol>
+
+    <br>
+    <b>Make Your First web10 app!</b>
+    <ol>
+        <li>make a new repl html, css, js project</li>
+        <li>copy all of the <a href="https://github.com/jacoby149/lessons/tree/main/lesson7">lesson 7 files into the repl</a>
+        </li>
+        <li>in script.js, set the web10_authenticator variable to your orgs auth server </i></li>
+        <li>set the web10_registration variable orgs registration server</li>
+        <li>successfully log into the hello world app through web10.</li>
+        <li>Go to your orgs web10 app server in the web browser.</li>
+        <li>Try changing the name of your app in the manifest.json to something unique.</li>
+        <li>Look at the organization app store again. Congrats on publishing your first web10 app!</li>
+        <li>on repl, hit the github branch icon <img src="../branch.webp" height="24px" /> , commit, and push
+            your
+            changes
+            to a new repo named lesson7.
+        </li>
+    </ol>
+
+    <br>
+
+    <button class="button is-small" id="authButton">
+        log in
+    </button>
+    <p id="message">
+        app not started
+    </p>
+
+</body>
+<!-- Installing using CDN -->
+<script src="https://unpkg.com/web10-npm/dist/wapi.js"></script>
+<script src="script.js"></script>
+
+</html>
