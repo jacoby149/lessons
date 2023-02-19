@@ -1,4 +1,4 @@
-
+put lessons.web10.app on the main pages.
 
 Make a video for lessons :
     1 - calculator
@@ -12,3 +12,6 @@ Make a video for lessons
     7 - web10 hello world
     8 - web10 notes
     9 - web10 mail app
+
+put the videos on udemy
+

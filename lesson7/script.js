@@ -1,12 +1,12 @@
 /* script.js */
 
 //example web10_authenticator : https://auth.web10.app
-var web10_authenticator = "put_your_authenticator_here"
+var web10Auth = "put_your_authenticator_here"
 //example web10_registrar : https://api.web10.app
-var web10_registrars = ["put_your_registrar_here","https://api.web10.app"]
+var web10Reg = ["put_your_registrar_here","https://api.web10.app"]
 
 //initialize a wapi object registered for auth with auth.web10.app
-const wapi = wapiInit(web10_authenticator)
+const wapi = wapiInit(web10Auth,web10Reg)
 
 // make the auth portal open when the log in button is pressed 
 authButton.onclick = wapi.openAuthPortal
