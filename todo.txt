@@ -1,0 +1,14 @@
+
+
+Make a video for lessons :
+    1 - calculator
+    2 - free fall sim.
+    3 - isotope masonry layout
+    4 - simulated ball objects
+    5 - snake 1
+    6 - snake 2
+
+Make a video for lessons
+    7 - web10 hello world
+    8 - web10 notes
+    9 - web10 mail app
