@@ -1,4 +1,6 @@
+TRULY test drive the three web10 lessons!
 put lessons.web10.app on the main pages.
+education.web10.app
 
 Make a video for lessons :
     1 - calculator
