@@ -3,7 +3,7 @@
 //example web10_authenticator : https://auth.web10.app
 var web10Auth = "put_your_authenticator_here"
 //example web10_registrar : https://api.web10.app
-var web10Reg = ["put_your_registrar_here","https://api.web10.app"]
+var web10Reg = ["put_your_registrar_here"]
 
 //initialize a wapi object registered for auth with auth.web10.app
 const wapi = wapiInit(web10Auth,web10Reg)
