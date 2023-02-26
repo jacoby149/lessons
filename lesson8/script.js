@@ -1,9 +1,11 @@
 /* script.js */
 
 //example web10_authenticator : https://auth.web10.app
-var web10_authenticator = "put_your_authenticator_here"
+//var web10_authenticator = "put_your_authenticator_here"
+var web10_authenticator = "https://auth.web10.app"
 //example web10_registrar : https://api.web10.app
-var web10_registrars = ["put_your_registrar_here","https://api.web10.app"]
+//var web10_registrars = ["put_your_registrar_here","https://api.web10.app"]
+var web10_registrars = ["https://api.web10.app"]
 
 /* script.js */
 
@@ -16,9 +18,20 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
   const wapi = wapiInit(web10_authenticator);
   const sirs = [
     {
-      service: "web10-docs-note-demo",
-      cross_origins: ["docs.web10.app", "localhost", "docs.localhost"],
+      service: "notes",
+      cross_origins: ["localhost", "REPLIT URL HERE", "GITHUB PAGES URL HERE"],
     },
+  //   {
+  //     service: "posts",
+  //     cross_origins: ["localhost", "REPLIT URL HERE", "GITHUB PAGES URL HERE"],
+  //     whitelist: [
+  //         {
+  //             provider: ".*",
+  //             username: ".*",
+  //             read: true
+  //         }
+  //     ]
+  // },
   ];
   wapi.SMROnReady(sirs, []);
   authButton.onclick = wapi.openAuthPortal;
@@ -72,6 +85,21 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
         (error) => (message.innerHTML = `${dF} : ${error.response.data.detail}`)
       );
   }
+
+  // function postNote(id) {
+  //   const entry = String(document.getElementById(id).value);
+  //   wapi
+  //     .create("posts", { 
+  //       html: entry,
+  //       media:[],
+  //       time:new Date(),
+  //       web10:`${wapi.readToken().provider}/${wapi.readToken().username}`
+  //     })
+  //     .then(message.innerHTML = `Posted note with id ${id}`)
+  //     .catch(
+  //       (error) => (message.innerHTML = `${uF} : ${error.response.data.detail}`)
+  //     );
+  // }
   
   /* display */
   function displayNotes(data) {
@@ -81,7 +109,8 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
                   <textarea id="${note._id}">${note.note}</textarea>
                   <button onclick="updateNote('${note._id}')">Update</button>
                   <button onclick="deleteNote('${note._id}')">Delete</button>
-              </div>`;
+                  <!-- <button onclick="postNote('${note._id}')">Post Note</button> -->
+                  </div>`;
     }
     noteview.innerHTML = data.map(contain).reverse().join(`<br>`);
   }
