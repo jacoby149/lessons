@@ -53,13 +53,13 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
   /* CRUD Calls */
   function readNotes() {
     wapi
-      .read("web10-docs-note-demo", {})
+      .read("notes", {})
       .then((response) => displayNotes(response.data))
       .catch((error) => (message.innerHTML = `${rF} : ${error.response.data.detail}`));
   }
   function createNote(note) {
     wapi
-      .create("web10-docs-note-demo", { note: note, date: String(new Date()) })
+      .create("notes", { note: note, date: String(new Date()) })
       .then(() => {
         readNotes();
         curr.value = "";
@@ -71,7 +71,7 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
   function updateNote(id) {
     const entry = String(document.getElementById(id).value);
     wapi
-      .update("web10-docs-note-demo", { _id: id }, { $set: { note: entry } })
+      .update("notes", { _id: id }, { $set: { note: entry } })
       .then(readNotes)
       .catch(
         (error) => (message.innerHTML = `${uF} : ${error.response.data.detail}`)
@@ -79,7 +79,7 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
   }
   function deleteNote(id) {
     wapi
-      .delete("web10-docs-note-demo", { _id: id })
+      .delete("notes", { _id: id })
       .then(readNotes)
       .catch(
         (error) => (message.innerHTML = `${dF} : ${error.response.data.detail}`)
