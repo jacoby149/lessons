@@ -15,7 +15,7 @@ const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
   ));
   
   /* wapi setup */
-  const wapi = wapiInit(web10_authenticator);
+  const wapi = wapiInit(web10_authenticator,web10_registrars);
   const sirs = [
     {
       service: "notes",

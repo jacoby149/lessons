@@ -18,20 +18,27 @@
         <li>copy all of the <a target="_blank" href="https://github.com/jacoby149/lessons/tree/main/lesson9">lesson 9 files into the
                 repl</a>
         </li>
-        <li>for mail, only you should be able to read your inbox.</li>
+        <li>add your institutions provider, app store registry server, and webRTC server.</li>
+        <li>do this by setting the variables web10_authenticator web10_registrar, and web10_webRTC </li>
         <li>however, you will need to let others create mail to your inbox</li>
         <li>to do so, in script.js, uncomment out the whitelist create entry</li>
-        <li>also, add the url of your github pages site to the list of cross_origins.</i></li>
+        <li>also, add the url of your github pages site and replit url to the list of cross_origins.</i></li>
         <li>as a user, if you log in and approve, you should be able to write messages!</li>
         <li>try sending a message to a classmate. you will need to reload the page.</li>
         <li>we will use webRTC to make it so you won't need to reload the page to see messages.</li>
-        <li>uncomment out the webRTC section of the mail app.</li>
+        <li>uncomment out the wapi.initP2P line that initializes the P2P functionality. </li>
+        <li>it lets people ping you, to tell you to re read your mail</li>
+        <li>uncomment out the .then function with wapi.send </li>
         <li>now try sending messages, they should instantly load for your friends.</li>
     </ol>
     <br>
     <b>Payment Processing</b>
     <ol>
         <li>we are going to charge users for a premium blue mail application background</li>
+        <li>change "YOUR USERNAME HERE", "NAME OF SUBSCRIPTION", 50,</li>
+        <li>these are the settings of your subscription.</li>
+        <li>uncomment out the displayOnboardMessage() and validSubscription() functions</li>
+        <li>these functions respectively let people buy sucbscriptions from you, and let you verify the subscriptions.</li>
         <li>on https://auth.web10.app, fill out the web10 devpay form.</li>
         <li>uncomment out the payment integration code. </li>
         <li>put your business ID into the script.js from your auth portal settings.</li>

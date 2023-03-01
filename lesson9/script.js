@@ -1,87 +1,154 @@
 /* script.js */
 
+const URLRecipient = new URLSearchParams(window.location.search).get('web10');
+if (URLRecipient) recipient.value = URLRecipient;
+
+
+//conventient failure messages
+const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
+  (op) => `failed to ${op} mail[s]`
+));
+
+/* wapi setup */
+
 //example web10_authenticator : https://auth.web10.app
 var web10_authenticator = "put_your_authenticator_here"
 //example web10_registrar : https://api.web10.app
 var web10_registrars = ["put_your_registrar_here","https://api.web10.app"]
+//example web10_registrar : rtc.web10.app
+var web10_webRTC = "put_your_webRTC_server_here"
 
-/* script.js */
 
-//conventient failure messages
-const Fs = ([cF, rF, uF, dF] = ["create", "read", "update", "delete"].map(
-    (op) => `failed to ${op} note[s]`
-  ));
-  
-  /* wapi setup */
-  const wapi = wapiInit(web10_authenticator);
-  const sirs = [
-    {
-      service: "web10-docs-note-demo",
-      cross_origins: ["docs.web10.app", "localhost", "docs.localhost"],
-    },
-  ];
-  wapi.SMROnReady(sirs, []);
-  authButton.onclick = wapi.openAuthPortal;
-  
-  function initApp() {
-    authButton.innerHTML = "log out";
-    authButton.onclick = () => {
-      wapi.signOut();
-      window.location.reload();
-    };
-    const t = wapi.readToken();
-    message.innerHTML = `hello ${t["provider"]}/${t["username"]},<br>`;
-    readNotes();
-  }
-  
-  if (wapi.isSignedIn()) initApp();
-  else wapi.authListen(initApp);
-  
-  /* CRUD Calls */
-  function readNotes() {
+const wapi = wapiInit(web10_authenticator,web10_registrars,web10_webRTC);
+const sirs = [
+  {
+    service: "mail",
+    cross_origins: ["localhost", "REPLIT URL HERE", "GITHUB PAGES URL HERE"],
+    // whitelist: [{ username: ".*", provider: ".*", create: true }], //allows all users to write to you
+  },
+];
+
+wapi.SMROnReady(sirs, []);
+authButton.onclick = wapi.openAuthPortal;
+
+/* web10 devPay */
+const [seller, subscriptionTitle, price, url] = [
+  "YOUR USERNAME HERE",
+  "NAME OF SUBSCRIPTION",
+  50,
+  window.location.href,
+];
+
+/* message for current subscribers */
+function displaySubscriberMessage() {
+  subscriptionStatus.innerHTML = `subscribed! <button id="cancel"> cancel theme sub </button>`;
+  document.body.style.backgroundColor = "#001111";
+  cancel.onclick = () =>
     wapi
-      .read("web10-docs-note-demo", {})
-      .then((response) => displayNotes(response.data))
-      .catch((error) => (message.innerHTML = `${rF} : ${error.response.data.detail}`));
+      .cancelSubscription(seller, subscriptionTitle)
+      .then(() => window.location.reload())
+      .catch((e) => {
+        subscriptionStatus.innerHTML = `subscription cancellation failed...`;
+      });
+}
+
+/* message for users that are not subscribed to onboard them */
+// function displayOnboardMessage() {
+//   subscriptionStatus.innerHTML = `not subscribed! <button id="checkout"> subscribe for theme </button>`;
+//   checkout.onclick = () =>
+//     wapi.checkout(seller, subscriptionTitle, price, url, url).catch((e) => {
+//       message.innerHTML = e.response.data.detail;
+//     });
+// }
+
+/* a front end weak subscription check [still lucrative!] */
+// function validSubscription(subscriptionData) {
+//   return (
+//     subscriptionData !== null &&
+//     parseInt(subscriptionData["price"]) === price &&
+//     subscriptionData["seller"] === seller &&
+//     subscriptionData["title"] === subscriptionTitle
+//   );
+// }
+
+/* The devpay functionality */
+function devPay() {
+  wapi
+    .verifySubscription(seller, subscriptionTitle)
+    .then((r) => {
+      if (validSubscription(r["data"])) displaySubscriberMessage();
+      else displayOnboardMessage();
+    })
+    .catch(
+      (e) => {console.log(e);subscriptionStatus.innerHTML = `subscription check failed...`}
+    );
+}
+
+function initApp() {
+  authButton.innerHTML = "log out";
+  authButton.onclick = () => {
+    wapi.signOut();
+    window.location.reload();
+    devPay();
+  };
+  const t = wapi.readToken();
+  message.innerHTML = `hello ${t["provider"]}/${t["username"]},<br>`;
+  readMail();
+  devPay();
+  // wapi.initP2P(readMail,"mail-device")
+}
+
+if (wapi.isSignedIn()) initApp();
+else wapi.authListen(initApp);
+
+/* CRUD Calls */
+function readMail() {
+  wapi
+    .read("mail", {})
+    .then((response) => displayMail(response.data))
+    .catch((error) => (message.innerHTML = `${rF} : ${error}`));
+}
+function createMail(mail, user, provider) {
+  const t = wapi.readToken();
+  const sender = t===null ? "anon":t["username"]
+  wapi
+    .create(
+      "mail",
+      {
+        mail: mail,
+        date: String(new Date()),
+        provider: provider,
+        username: sender,
+      },
+      user,
+      provider
+    )
+    // .then(() => {
+    //   if (sender!=="anon") readMail();
+    //   curr.value = "";
+    //   message.innerHTML = "sent message";
+    //   wapi.send(provider,user,window.location.hostname,"messaging-device","bump")
+    // })
+    .catch((error) => (message.innerHTML = `${cF} : ${error}`));
+}
+function deleteMail(id) {
+  wapi
+    .delete("mail", { _id: id })
+    .then(readMail)
+    .catch(
+      (error) => (message.innerHTML = `${dF} : ${error.response.data.detail}`)
+    );
+}
+
+/* display */
+function displayMail(data) {
+  function contain(mail) {
+    return `<div style="margin-top:40px;margin-left:10px">
+                <p style="font-family:monospace;">${mail.date}</p>
+                <p style="font-family:monospace;">${mail.provider}/${mail.username}</p>                
+                <i id="${mail._id}">${mail.mail}</i>
+                <button onclick="deleteMail('${mail._id}')">Delete</button>
+            </div>`;
   }
-  function createNote(note) {
-    wapi
-      .create("web10-docs-note-demo", { note: note, date: String(new Date()) })
-      .then(() => {
-        readNotes();
-        curr.value = "";
-      })
-      .catch(
-        (error) => (message.innerHTML = `${cF} : ${error.response.data.detail}`)
-      );
-  }
-  function updateNote(id) {
-    const entry = String(document.getElementById(id).value);
-    wapi
-      .update("web10-docs-note-demo", { _id: id }, { $set: { note: entry } })
-      .then(readNotes)
-      .catch(
-        (error) => (message.innerHTML = `${uF} : ${error.response.data.detail}`)
-      );
-  }
-  function deleteNote(id) {
-    wapi
-      .delete("web10-docs-note-demo", { _id: id })
-      .then(readNotes)
-      .catch(
-        (error) => (message.innerHTML = `${dF} : ${error.response.data.detail}`)
-      );
-  }
-  
-  /* display */
-  function displayNotes(data) {
-    function contain(note) {
-      return `<div>
-                  <p style="font-family:monospace;">${note.date}</p>
-                  <textarea id="${note._id}">${note.note}</textarea>
-                  <button onclick="updateNote('${note._id}')">Update</button>
-                  <button onclick="deleteNote('${note._id}')">Delete</button>
-              </div>`;
-    }
-    noteview.innerHTML = data.map(contain).reverse().join(`<br>`);
-  }
+  mailview.innerHTML = data.map(contain).reverse().join(`<br>`);
+}
