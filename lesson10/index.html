@@ -24,20 +24,34 @@
         <li>to do so, in script.js, uncomment out the whitelist create entry</li>
         <li>also, add the url of your github pages site and replit url to the list of cross_origins.</i></li>
         <li>as a user, if you log in and approve, you should be able to write messages!</li>
-        <li>try sending a message to a classmate. your will need to reload the page to see incoming messages.</li>
-        <li>finish the deleteMail function, follow the directions in the comments.</li>
-        <li>check that it works!</li>
-        <li>we will use webRTC to make it so you won't need to reload the page to see new messages.</li>
+        <li>try sending a message to a classmate. you will need to reload the page.</li>
+        <li>we will use webRTC to make it so you won't need to reload the page to see messages.</li>
         <li>uncomment out the wapi.initP2P line that initializes the P2P functionality. </li>
         <li>it lets people ping you, to tell you to re read your mail</li>
         <li>uncomment out the .then function with wapi.send </li>
         <li>now try sending messages, they should instantly load for your friends.</li>
+    </ol>
+    <br>
+    <b>Payment Processing</b>
+    <ol>
+        <li>we are going to charge users for a premium blue mail application background</li>
+        <li>change "YOUR USERNAME HERE", "NAME OF SUBSCRIPTION", 50,</li>
+        <li>these are the settings of your subscription.</li>
+        <li>uncomment out the displayOnboardMessage() and validSubscription() functions</li>
+        <li>these functions respectively let people buy sucbscriptions from you, and let you verify the subscriptions.</li>
+        <li>on https://auth.web10.app, fill out the web10 devpay form.</li>
+        <li>uncomment out the payment integration code. </li>
+        <li>put your business ID into the script.js from your auth portal settings.</li>
+        <li><i>hint: you should have a business ID if you filled out the stripe devpay form.</i></li>
+        <li>Hit the pay button, and pay with the credit card 4242.4242.4242.4242
+        </li>
+        <li>if you successfully pay, your mailer should be dark blue! the premium mailer color!</li>
         <li>on repl, hit the github branch icon <img src="../branch.webp" height="24px" /> , commit, and push
             your
             changes
             to a new repo named lesson9.
         </li>
-        <li>Congratulations! you made your first P2P streaming web10 app!</li>
+        <li>Congratulations! you made your first monetized web10 app!</li>
     </ol>
 
     <br>
@@ -49,6 +63,7 @@
         <p id="message">
             app not started
         </p>
+        <div id="subscriptionStatus">awaiting subscription check</div>
         <br>
         <div>
             <div>
@@ -66,7 +81,7 @@
     </div>
 </body>
 
-<script src="https://unpkg.com/web10-npm@1.0.8/dist/wapi.js"></script>
+<script src="https://unpkg.com/web10-npm@1.0.5/dist/wapi.js"></script>
 <script src="script.js"></script>
 
 </html>

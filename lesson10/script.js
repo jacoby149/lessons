@@ -31,6 +31,46 @@ const sirs = [
 wapi.SMROnReady(sirs, []);
 authButton.onclick = wapi.openAuthPortal;
 
+/* web10 devPay */
+const [seller, subscriptionTitle, price, url] = [
+  "YOUR USERNAME HERE",
+  "NAME OF SUBSCRIPTION",
+  50,
+  window.location.href,
+];
+
+/* message for current subscribers */
+function displaySubscriberMessage() {
+  subscriptionStatus.innerHTML = `subscribed! <button id="cancel"> cancel theme sub </button>`;
+  document.body.style.backgroundColor = "#001111";
+  cancel.onclick = () =>
+    wapi
+      .cancelSubscription(seller, subscriptionTitle)
+      .then(() => window.location.reload())
+      .catch((e) => {
+        subscriptionStatus.innerHTML = `subscription cancellation failed...`;
+      });
+}
+
+/* message for users that are not subscribed to onboard them */
+// function displayOnboardMessage() {
+//   subscriptionStatus.innerHTML = `not subscribed! <button id="checkout"> subscribe for theme </button>`;
+//   checkout.onclick = () =>
+//     wapi.checkout(seller, subscriptionTitle, price, url, url).catch((e) => {
+//       message.innerHTML = e.response.data.detail;
+//     });
+// }
+
+/* a front end weak subscription check [still lucrative!] */
+// function validSubscription(subscriptionData) {
+//   return (
+//     subscriptionData !== null &&
+//     parseInt(subscriptionData["price"]) === price &&
+//     subscriptionData["seller"] === seller &&
+//     subscriptionData["title"] === subscriptionTitle
+//   );
+// }
+
 /* The devpay functionality */
 function devPay() {
   wapi
@@ -91,11 +131,13 @@ function createMail(mail, user, provider) {
     // })
     .catch((error) => (message.innerHTML = `${cF} : ${error}`));
 }
-
 function deleteMail(id) {
-  //TODO! Do some copy paste from the deleteNotes function from lesson 8.
-  // change the service to "mail"
-  // also the .then action will be different, it will be different from readNotes. 
+  wapi
+    .delete("mail", { _id: id })
+    .then(readMail)
+    .catch(
+      (error) => (message.innerHTML = `${dF} : ${error.response.data.detail}`)
+    );
 }
 
 /* display */
